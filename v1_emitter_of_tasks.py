@@ -15,6 +15,11 @@ import pika
 import sys
 import webbrowser
 
+from util_logger import setup_logger
+
+
+logger, logname = setup_logger(__file__)
+
 def offer_rabbitmq_admin_site():
     """Offer to open the RabbitMQ Admin website"""
     ans = input("Would you like to monitor RabbitMQ queues? y or n ")
@@ -45,6 +50,6 @@ channel.basic_publish(
     properties=pika.BasicProperties(delivery_mode=pika.spec.PERSISTENT_DELIVERY_MODE),
 )
 # tell the user the message was sent
-print(f" [x] Sent {message}")
+logger.info(f" [x] Sent {message}")
 # close the connection to the server
 connection.close()
