@@ -1,5 +1,7 @@
 # streaming-04-multiple-consumers
 
+by Harinya Potluri 5/21/24
+
 > Use RabbitMQ to distribute tasks to multiple workers
 
 One process will create task messages. Multiple worker processes will share the work. 
@@ -58,3 +60,17 @@ Which worker gets which tasks?
 ## Screenshot
 
 See a running example with at least 3 concurrent process windows here:
+![alt text](P4Screenshot.png)
+
+## Instructions 
+1. Open 3 terminals and make sure to use a python env on it. 
+2. Install pika 
+3. Run v2_listeners in 2 of the terminals 
+4. Run the v3_emitter in the last terminal. 
+5. Watch the code work. 
+
+## Explaintion of V3 
+
+The new addtion to V3 emitter is a new function that reads in the the data file and returns a list of the messages.
+
+I also made small changes to the main in order to get the code to work with the new function. 
